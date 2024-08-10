@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Static Site with ToastUI-Editor</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" />
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.css" />
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <!-- Editor's Plugin -->
+  <script src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"></script>
+  <div class="editor-container">
+    <div id="editor" style="width: 100%; height: 100%;"></div>
+  </div>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="editor"></div>
+
+
+
+  <script>
+    var toastUIEditor = null
+    $(window).on("load", function() {
+
+      const Editor = toastui.Editor;
+      const {
+        codeSyntaxHighlight
+      } = Editor.plugin;
+
+      toastUIEditor = new Editor({
+        el: document.querySelector("#editor"),
+        height: '800px',
+        initialEditType: 'markdown', // Thay đổi từ 'wysiwyg' thành 'markdown'
+        initialValue: '',
+        previewStyle: 'vertical', // Thay đổi từ 'vertical' thành 'tab'
+        hideModeSwitch: false, // Ẩn nút chuyển đổi giữa Markdown và WYSIWYG
+        plugins: [codeSyntaxHighlight],
+      });
+    });
+  </script>
+</body>
+
+</html>
